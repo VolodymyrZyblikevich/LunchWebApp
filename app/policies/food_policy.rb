@@ -8,16 +8,16 @@ class FoodPolicy < ApplicationPolicy
   end
 
   def update?
-    return true if user.present? && user == article.user
+    return true if user.present? && user == food.user
   end
 
   def destroy?
-    return true if user.present? && user == article.user
+    return true if user.present? && user == food.user
   end
 
   private
 
-  def article
+  def food
     record
   end
 end
