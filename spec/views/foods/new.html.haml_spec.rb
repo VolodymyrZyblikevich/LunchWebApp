@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "foods/new", type: :view do
+RSpec.describe "dishes/new", type: :view do
   before(:each) do
-    assign(:food, Food.new(
+    assign(:dish, Dish.new(
       name: "MyString",
       price: 1,
       category: "MyString"
@@ -12,13 +12,13 @@ RSpec.describe "foods/new", type: :view do
   it "renders new food form" do
     render
 
-    assert_select "form[action=?][method=?]", foods_path, "post" do
+    assert_select "form[action=?][method=?]", dishes_path, "post" do
 
-      assert_select "input[name=?]", "food[name]"
+      assert_select "input[name=?]", "dish[name]"
 
-      assert_select "input[name=?]", "food[price]"
+      assert_select "input[name=?]", "dish[price]"
 
-      assert_select "input[name=?]", "food[category]"
+      assert_select "input[name=?]", "idsh[category]"
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "foods/show", type: :view do
+RSpec.describe "dishes/show", type: :view do
   before(:each) do
     @food = assign(:food, Food.create!(
       name: "Name",
