@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  before_action :set_food, only: %i[ show edit update destroy ]
+  before_action :set_dish, only: %i[show edit update destroy]
 
   def index
     @dishes = Dish.all
@@ -11,7 +11,6 @@ class DishesController < ApplicationController
 
   def create
     @dish = Dish.new(dish_params)
-
     respond_to do |format|
       if @dish.save
         format.html { redirect_to @dish, notice: "Dish was successfully created." }
@@ -22,20 +21,16 @@ class DishesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @dish.update(dish_params)
-        format.html { redirect_to @dish, notice: "Food was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @dish.update(dish_params)
+      render :index
+    else
+      render :edit
     end
   end
 
   def destroy
     @dish.destroy
-    respond_to do |format|
-      format.html { redirect_to dishes_url, notice: "Dish was successfully destroyed." }
-    end
+    render :index
   end
 
   private
@@ -50,6 +45,6 @@ class DishesController < ApplicationController
   end
 
   def dish_params
-    params.require(:dish).permit(:name, :price, :type)
+    params.require(:dish).permit(:name, :price, :dish_type)
   end
 end

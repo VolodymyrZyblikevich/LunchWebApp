@@ -1,0 +1,18 @@
+.soups
+  %h3 Soups
+  %ul
+    - menu.soups.each do |soup|
+      %li
+        =soup.name
+.main_dish
+  %h3 Main
+  %ul
+    - menu.main_dishes.each do |main_dish|
+      %li
+        =main_dish.name
+.beverage
+  %h3 Beverages
+  %ul
+    - menu.beverages.each do |beverage|
+      %li
+        =beverage.name
