@@ -1,6 +1,5 @@
-- MenuDays::WEEK_DAYS.keys.each do |value|
-  =link_to today_path(day: MenuDays::WEEK_DAYS[value]), remote: true do
-    %button
-      = value
+- MenuDay::WEEK_DAYSeach do |key,value|
+  =link_to menu_day_path(MenuDay::WEEK_DAYS[key,value]), remote: true do
+    %button= value
 .menu
-  =render "menu", menu_days: @menu_days
+  =render "menu", menu_days: @dishes_for_menu_day

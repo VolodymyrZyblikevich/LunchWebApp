@@ -13,7 +13,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem "haml-rails", "~> 2.0"
 gem 'simple_form'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'pundit'
 gem 'faker'
 gem 'factory_bot_rails'

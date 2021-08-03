@@ -1,10 +1,9 @@
 # frozen_string_literal: true
+
 class MenuDaysController < ApplicationController
-  def index
-    @menu_days = MenuDays.find_by_day(1).dishes
+
+  def show
+    @dishes_for_menu_day = MenuDay.find_by(params[:day])
   end
 
-  def select_day
-    @menu_days = MenuDays.find_by_day(params[:day]).dishes
-  end
 end

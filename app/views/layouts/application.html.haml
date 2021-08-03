@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -12,8 +11,8 @@
   %body
     = render 'layouts/alert'
     = render "layouts/navigation"
-#flash
-  - flash.each do |key, value|
-    %div{:class => "flash #{key}"}= value
-.container-fluid
-  = yield
+    #flash
+      - flash.each do |key, value|
+        %div{:class => "flash #{key}"}= value
+    .container-fluid
+      = yield

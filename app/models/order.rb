@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+#
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :soup, class_name: Dish.name, foreign_key: :soup_id
