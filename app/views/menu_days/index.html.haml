@@ -1,0 +1,5 @@
+- @menu_days.each do |menu_day|
+  = link_to menu_day.day, menu_day_path(menu_day), remote: true, class: 'btn btn-info'
+
+.menu
+  =render "menu", dishes: @dishes_for_menu_day
