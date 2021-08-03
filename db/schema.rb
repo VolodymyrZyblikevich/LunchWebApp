@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_105420) do
+ActiveRecord::Schema.define(version: 2021_07_27_195959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
+    t.decimal "price", precision: 5, scale: 2
+    t.string "dish_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "dish_type"
-    t.decimal "price"
   end
 
-  create_table "dishes_menus", id: false, force: :cascade do |t|
-    t.bigint "menu_id", null: false
+  create_table "dishes_menu_days", id: false, force: :cascade do |t|
+    t.bigint "menu_day_id", null: false
     t.bigint "dish_id", null: false
   end
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_105420) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.decimal "price", precision: 5, scale: 2
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_07_28_105420) do
     t.integer "soup_id"
     t.integer "main_dish_id"
     t.integer "beverage_id"
-    t.decimal "price", precision: 2, scale: 2
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

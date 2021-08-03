@@ -1,0 +1,5 @@
+- MenuDay::WEEK_DAYS.each do |key,value|
+  =link_to menu_day_path(value), remote: true do
+    %button= value
+.menu
+  =render "menu", menu_days: @dishes_for_menu_day

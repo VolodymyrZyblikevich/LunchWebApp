@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 [Dish::SOUP, Dish::MAIN_DISH, Dish::BEVERAGE].each do |dish_type|
   20.times do
     Dish.create(
@@ -9,11 +7,12 @@
     )
   end
 end
-MenuDays::WEEK_DAYS.each_value do |day|
+
+MenuDay::WEEK_DAYS.each_value do |day|
   dishes = [
     Dish.soup.limit(rand(1..5)),
     Dish.main_dish.limit(rand(1..5)),
     Dish.beverage.limit(rand(1..5))
   ].flatten
-  MenuDays.create(day: day, dishes: dishes)
+  MenuDay.create(day: day, dishes: dishes)
 end

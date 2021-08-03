@@ -9,9 +9,4 @@ class Dish < ApplicationRecord
     main_dish: MAIN_DISH = 'main',
     beverage: BEVERAGE = 'beverage'
   }
-
-  scope :soups, -> { where(Dish.soup) }
-  scope :main_dishes, -> { where(Dish.main_dish) }
-  scope :beverages, -> { where(Dish.beverage) }
-
 end
