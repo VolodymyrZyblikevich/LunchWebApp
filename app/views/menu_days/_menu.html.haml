@@ -1,17 +1,41 @@
 .soups
-  %h3= 'Soups'
-  %ul
+  .container
+  %h3= 'Soup'
+  .row
     - dishes.soup.each do |soup|
-      %li= soup.name
+      .col
+        %label
+          %input.card-input-element{ name: "soup", type: "radio" }
+            .panel.panel-default.card-input
+              = image_tag("photo.jpeg", size: "100x100")
+              .panel-heading= soup.name
+              .panel-body= soup.price
+                UAN
 
 .main_dish
+  .container
   %h3= 'Main'
-  %ul
+  .row
     - dishes.main_dish.each do |main_dish|
-      %li= main_dish.name
+      .col
+        %label
+          %input.card-input-element{ name: "soup", type: "radio" }
+          .panel.panel-default.card-input
+            .panel-heading= main_dish.name
+            .panel-body= main_dish.price
+              UAN
 
 .beverage
+  .container
   %h3= 'Beverages'
-  %ul
+  .row
     - dishes.beverage.each do |beverage|
-      %li= beverage.name
+      .col
+        %label
+          %input.card-input-element{ name: "soup", type: "radio" }
+          .panel.panel-default.card-input
+            .panel-heading= beverage.name
+            .panel-body= beverage.price
+              UAN
+
+%hr{ style: "width:100%;text-align:left;margin-left:0" }
