@@ -8,35 +8,35 @@ class DishesController < ApplicationController
   end
 
   def new
-    @dish = Dish.new
+    @dishes = Dish.new
   end
 
   def create
-    @dish = Dish.new(dish_params)
-    if @dish.save
-      redirect_to @dish, notice: 'Dish was successfully created.'
+    @dishes = Dish.new(dish_params)
+    if @dishes.save
+      redirect_to @dishes, notice: 'Dish was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if @dish.update(dish_params)
-      redirect_to @dish
+    if @dishes.update(dish_params)
+      redirect_to @dishes
     else
       render :edit
     end
   end
 
   def destroy
-    @dish.destroy
-    redirect_to 'index'
+    @dishes.destroy
+    redirect_to dishes_path
   end
 
   private
   
   def set_dish
-    @dish = Dish.find(params[:id])
+    @dishes = Dish.find(params[:id])
   end
 
   def dish_params

@@ -1,25 +1,9 @@
-%form
-  .row.mb-3
-    %label.col-sm-2.col-form-label{:for => "@Name"} Name
-    .col-sm-10
-      %input#inputEmail3.form-control{:type => "name"}/
-  .row.mb-3
-    %label.col-sm-2.col-form-label{:for => "Price"} Price
-    .col-sm-10
-      %input#inputPassword3.form-control{:type => "price"}/
-  %fieldset.row.mb-3
-    %legend.col-form-label.col-sm-2.pt-0 Radios
-    .col-sm-10
-      .form-check
-        %input#gridRadios1.form-check-input{:checked => "checked", :name => "gridRadios", :type => "radio", :value => "main_dish"}/
-        %label.form-check-label{:for => "gridRadios1"}
-          Main dish
-      .form-check
-        %input#gridRadios2.form-check-input{:name => "gridRadios", :type => "radio", :value => "soup"}/
-        %label.form-check-label{:for => "gridRadios2"}
-          Soup
-      .form-check
-        %input#gridRadios2.form-check-input{:name => "gridRadios", :type => "radio", :value => "beverage"}/
-        %label.form-check-label{:for => "gridRadios2"}
-          Beverage
-  %button.btn.btn-primary{:type => "submit"} Sign in
+= form_for @dishes do |f|
+  %label name
+  = f.text_field :name
+  %label price
+  = f.text_field :price
+  = f.radio_button :dish_type, :soup, checked: true
+  = f.radio_button :dish_type, :main
+  = f.radio_button :dish_type, :beverage
+  = f.submit "Submit"

@@ -14,5 +14,4 @@ class DishPolicy < ApplicationPolicy
   def destroy?
     return true if user.present? && user == record.user
   end
-
 end
