@@ -1,9 +1,14 @@
 = form_for @dishes do |f|
-  %label name
+  %label Name
   = f.text_field :name
-  %label price
+  %label Price
   = f.text_field :price
-  = f.radio_button :dish_type, :soup, checked: true
-  = f.radio_button :dish_type, :main
-  = f.radio_button :dish_type, :beverage
-  = f.submit "Submit"
+  %p
+  .btn-group{"aria-label" => "radio", role: "group"}
+    = f.radio_button :dish_type, :soup, class: "btn-check", checked: true
+    = f.label :dish_type_soup, "soup", class: "btn btn-outline-primary"
+    = f.radio_button :dish_type, :main, class: "btn-check"
+    = f.label :dish_type_main, "main:", class: "btn btn-outline-primary"
+    = f.radio_button :dish_type, :beverage, class: "btn-check"
+    = f.label :dish_type_beverage, "beverage:", class: "btn btn-outline-primary"
+  = f.submit "Submit", class: "btn btn-secondary"
