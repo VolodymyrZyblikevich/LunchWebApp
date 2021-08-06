@@ -1,11 +1,16 @@
--# frozen_string_literal: true
-= simple_form_for(@dish) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+= form_for @dish do |f|
+  %label='Name'
+  = f.text_field :name
 
-  .form-inputs
-    = f.input :name
-    = f.input :price
+  %label='Price'
+  = f.text_field :price
 
-  .form-actions
-    = f.button :submit
+  %p
+  .btn-group{'aria-label' => 'radio', role: 'group'}
+    = f.radio_button :dish_type, Dish::SOUP, class: 'btn-check', checked: true
+    = f.label :dish_type_soup, 'soup', class: 'btn btn-outline-primary'
+    = f.radio_button :dish_type, Dish::MAIN_DISH, class: 'btn-check'
+    = f.label :dish_type_main, 'main:', class: 'btn btn-outline-primary'
+    = f.radio_button :dish_type, Dish::BEVERAGE, class: 'btn-check'
+    = f.label :dish_type_beverage, "beverage:", class: 'btn btn-outline-primary'
+  = f.submit 'Submit', class: 'btn btn-secondary'

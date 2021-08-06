@@ -1,15 +1,12 @@
-%p#notice= notice
-
 %p
-  %b Name:
+  %b= 'Name'
   = @dish.name
 %p
-  %b Price:
+  %b='Price'
   = @dish.price
 %p
-  %b Category:
-  = @dish.category
+  %b='Category'
+  = @dish.dish_type
 
 = link_to 'Edit', edit_dish_path(@dish)
-\|
 = link_to 'Back', dishes_path

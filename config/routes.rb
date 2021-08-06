@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :dishes
   devise_for :users
+
+  resources :dishes
+  resources :menu_days, only: %i[index show]
   root to: 'dishes#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+[Dish::SOUP, Dish::MAIN_DISH, Dish::BEVERAGE].each do |dish_type|
+  20.times do
+    Dish.create(
+      name: Faker::Food.dish,
+      dish_type: dish_type,
+      price: Faker::Number.decimal(l_digits: 2, r_digits: 2)
+    )
+  end
+end
+
+MenuDay::WEEK_DAYS.each_value do |day|
+  dishes = [
+    Dish.soup.limit(rand(1..5)),
+    Dish.main_dish.limit(rand(1..5)),
+    Dish.beverage.limit(rand(1..5))
+  ].flatten
+  MenuDay.create(day: day, dishes: dishes)
+end

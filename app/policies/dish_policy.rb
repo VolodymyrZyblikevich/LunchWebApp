@@ -4,15 +4,14 @@ class DishPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    true
   end
 
   def update?
-    return true if user.present? && user == record.user
+    true
   end
 
   def destroy?
-    return true if user.present? && user == record.user
+    true
   end
-
 end

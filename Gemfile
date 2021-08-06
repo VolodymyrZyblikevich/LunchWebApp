@@ -13,9 +13,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem "haml-rails", "~> 2.0"
 gem 'simple_form'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'pundit'
 gem 'faker'
+gem 'factory_bot_rails'
+gem 'rubocop'
+gem 'rubocop-rspec'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 

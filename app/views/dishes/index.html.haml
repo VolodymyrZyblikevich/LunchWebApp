@@ -6,16 +6,13 @@
       %th Name
       %th Price
       %th Category
-      %th
-      %th
-      %th
 
   %tbody
     - @dishes.each do |dish|
       %tr
         %td= dish.name
         %td= dish.price
-        %td= dish.category
+        %td= dish.dish_type
         %td= link_to 'Show', dish
         %td= link_to 'Edit', edit_dish_path(dish)
         %td= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' }
