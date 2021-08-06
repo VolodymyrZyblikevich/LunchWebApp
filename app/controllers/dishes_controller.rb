@@ -4,7 +4,7 @@ class DishesController < ApplicationController
   before_action :set_dish, only: %i[show edit update destroy]
 
   def index
-    @dish = Dish.all
+    @dishes = Dish.all
   end
 
   def new
@@ -13,23 +13,24 @@ class DishesController < ApplicationController
 
   def create
     @dish = Dish.new(dish_params)
+
     if @dish.save
-      redirect_to @dish, notice: 'Dish has been successfully created'
+      redirect_to dish_path(@dish), notice: 'Dish has been successfully created'
     else
       render "new", status: :unprocessable_entity
     end
   end
 
   def update
-    if @dishes.update(dish_params)
-      redirect_to @dishes
+    if @dish.update(dish_params)
+      redirect_to dish_path(@dish)
     else
       render :edit
     end
   end
 
   def destroy
-    @dishes.destroy
+    @dish.destroy
 
     redirect_to dishes_path
   end

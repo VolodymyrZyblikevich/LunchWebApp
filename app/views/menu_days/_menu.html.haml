@@ -2,14 +2,16 @@
   %h3= 'Soups'
   %ul
     - dishes.soup.each do |soup|
-      %li=soup.name
+      %li= soup.name
+
 .main_dish
   %h3= 'Main'
   %ul
     - dishes.main_dish.each do |main_dish|
-      %li=main_dish.name
+      %li= main_dish.name
+
 .beverage
   %h3= 'Beverages'
   %ul
     - dishes.beverage.each do |beverage|
-      %li=beverage.name
+      %li= beverage.name

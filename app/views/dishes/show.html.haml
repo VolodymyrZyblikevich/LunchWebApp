@@ -1,12 +1,12 @@
 %p
   %b= 'Name'
-  = @dishes.name
+  = @dish.name
 %p
   %b='Price'
-  = @dishes.price
+  = @dish.price
 %p
   %b='Category'
-  = @dishes.dish_type
+  = @dish.dish_type
 
-= link_to 'Edit', edit_dish_path(@dishes)
+= link_to 'Edit', edit_dish_path(@dish)
 = link_to 'Back', dishes_path
