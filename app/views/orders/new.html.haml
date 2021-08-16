@@ -1,0 +1,44 @@
+.row
+  .col
+    .card.mb-3{:style => "max-width: 540px;"}
+      .row.g-0
+        .col-md-4
+          = image_tag("photo.jpeg", :size => "150x150")
+        .col-md-8
+          .card-body
+            %h5.card-title
+              = @order.soup.name
+            %p.card-text
+              = @order.soup.price
+  .col
+    .card.mb-3{:style => "max-width: 540px;"}
+      .row.g-0
+        .col-md-4
+          = image_tag("photo.jpeg", :size => "150x150")
+        .col-md-8
+          .card-body
+            %h5.card-title
+              = @order.main_dish.name
+            %p.card-text
+              = @order.main_dish.price
+  .col
+    .card.mb-3{:style => "max-width: 540px;"}
+      .row.g-0
+        .col-md-4
+          = image_tag("photo.jpeg", :size => "150x150")
+        .col-md-8
+          .card-body
+            %h5.card-title
+              = @order.beverage.name
+            %p.card-text
+              = @order.beverage.price
+.row
+  .col
+    = current_user.name
+    = current_user.email
+    = simple_form_for @order do |f|
+      = f.input :mane_users, label: 'Name', error: 'Username is mandatory, please specify one'
+      = f.input :surname_user, label: 'Surname', error: 'Surname is mandatory, please specify one'
+      = f.input :address, label: 'address', error: 'address is mandatory, please specify one'
+      %hr
+      = f.submit "Comfirm order"

@@ -1,37 +1,43 @@
-.soups
-  .container
-  %h3= 'Soup'
-  .row
-    - dishes.soup.each do |soup|
-      .col
-        %label
-          = radio_button_tag :soup, :dish_type, class: "card-input-element"
-          %div
+= simple_form_for Order.new, url: new_order_path, method: :get do |f|
+  .soups
+    .container
+    %h3= 'Soup'
+    .row
+      - dishes.soup.each do |soup|
+        .col
+          %label
+            = f.radio_button :soup_id, soup.id
+            %div
+              .panel.panel-default.card-input
+                = image_tag("photo.jpeg", :size => "100x100")
+                .panel-heading=soup.name
+                .panel-body=soup.price
+  .main_dish
+    .container
+    %h3= 'Main'
+    .row
+      - dishes.main_dish.each do |main_dish|
+        .col
+          %label
+            = f.radio_button :main_dish_id, main_dish.id
+            %div
+              .panel.panel-default.card-input
+                = image_tag("photo.jpeg", :size => "100x100")
+                .panel-heading=main_dish.name
+                .panel-body=main_dish.price
+  .beverage
+    .container
+    %h3= 'Beverages'
+    .row
+      - dishes.beverage.each do |beverage|
+        .col
+          %label
+            = f.radio_button :beverage_id, beverage.id
+            %div
             .panel.panel-default.card-input
               = image_tag("photo.jpeg", :size => "100x100")
-              .panel-heading=soup.name
-              .panel-body=soup.price
-.main_dish
-  .container
-  %h3= 'Main'
-  .row
-    - dishes.main_dish.each do |main_dish|
-      .col
-        %label
-          %input.card-input-element{:name => "main", :type => "radio"}
-          .panel.panel-default.card-input
-            .panel-heading=main_dish.name
-            .panel-body=main_dish.price
+              .panel-heading=beverage.name
+              .panel-body=beverage.price
 
-.beverage
-  .container
-  %h3= 'Beverages'
-  .row
-    - dishes.beverage.each do |beverage|
-      .col
-        %label
-          %input.card-input-element{:name => "beverage", :type => "radio"}
-          .panel.panel-default.card-input
-            .panel-heading=beverage.name
-            .panel-body=beverage.price
-%hr{:style => "width:100%;text-align:left;margin-left:0"}/
+    %hr{:style => "width:100%;text-align:left;margin-left:0"}
+    = f.submit "Create order"

@@ -1,0 +1,19 @@
+%h1 Order
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th dishes
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.soup_id
+        %td= order.main_dish_id
+        %td= order.beverage_id
+        %td= link_to 'create order', orders_path
+
+
+
