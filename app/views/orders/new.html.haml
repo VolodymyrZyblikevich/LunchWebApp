@@ -1,0 +1,38 @@
+.row
+  .col
+    .card.mb-3
+      .row.g-0
+        .col-md-4
+          = image_tag("dish.jpeg")
+        .col-md-8
+          .card-body
+            %h5.card-title= @order.soup.name
+            %p.card-text= @order.soup.price
+  .col
+    .card.mb-3
+      .row.g-0
+        .col-md-4
+          = image_tag("dish.jpeg")
+        .col-md-8
+          .card-body
+            %h5.card-title= @order.main_dish.name
+            %p.card-text= @order.main_dish.price
+  .col
+    .card.mb-3
+      .row.g-0
+        .col-md-4
+          = image_tag("dish.jpeg")
+        .col-md-8
+          .card-body
+            %h5.card-title= @order.beverage.name
+            %p.card-text= @order.beverage.price
+.row
+  .col
+    = current_user.first_name
+    = current_user.email
+    = simple_form_for @order do |f|
+      = f.input :first_name, label: 'Name', error: 'Username is mandatory, please specify one', input_html: { value: current_user.first_name }
+      = f.input :second_name, label: 'Surname', error: 'Surname is mandatory, please specify one', input_html: { value: current_user.second_name }
+      = f.input :address, label: 'address', error: 'address is mandatory, please specify one'
+      %hr
+      = f.submit "Comfirm order"

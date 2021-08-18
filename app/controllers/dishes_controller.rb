@@ -4,7 +4,7 @@ class DishesController < ApplicationController
   before_action :set_dish, only: %i[show edit update destroy]
 
   def index
-    @dishes = Dish.all
+    @dishes = Dish.paginate(page: params[:page], per_page: 10)
   end
 
   def new
