@@ -5,39 +5,34 @@
     .row
       - dishes.soup.each do |soup|
         .col
-          %label
-            = f.radio_button :soup_id, soup.id
-            %div
-              .panel.panel-default.card-input
-                = image_tag("photo.jpeg", :size => "100x100")
-                .panel-heading=soup.name
-                .panel-body=soup.price
+          %label= f.radio_button :soup_id, soup.id
+          .panel.panel-default.card-input
+            = image_tag("dish.jpeg")
+            .panel-heading= soup.name
+            .panel-body= soup.price
   .main_dish
     .container
     %h3= 'Main'
     .row
       - dishes.main_dish.each do |main_dish|
         .col
-          %label
-            = f.radio_button :main_dish_id, main_dish.id
-            %div
-              .panel.panel-default.card-input
-                = image_tag("photo.jpeg", :size => "100x100")
-                .panel-heading=main_dish.name
-                .panel-body=main_dish.price
+          %label= f.radio_button :main_dish_id, main_dish.id
+          .panel.panel-default.card-input
+            = image_tag("dish.jpeg")
+            .panel-heading= main_dish.name
+            .panel-body= main_dish.price
   .beverage
     .container
     %h3= 'Beverages'
     .row
       - dishes.beverage.each do |beverage|
         .col
-          %label
-            = f.radio_button :beverage_id, beverage.id
-            %div
+          %label= f.radio_button :beverage_id, beverage.id
             .panel.panel-default.card-input
-              = image_tag("photo.jpeg", :size => "100x100")
+              = image_tag("dish.jpeg")
               .panel-heading=beverage.name
               .panel-body=beverage.price
 
-    %hr{:style => "width:100%;text-align:left;margin-left:0"}
     = f.submit "Create order"
+
+

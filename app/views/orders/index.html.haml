@@ -3,9 +3,9 @@
 %table
   %thead
     %tr
-      %th Name
-      %th Price
-      %th dishes
+    = 'Name'
+    = 'Price'
+    = 'Dishes'
 
   %tbody
     - @orders.each do |order|
@@ -14,6 +14,3 @@
         %td= order.main_dish_id
         %td= order.beverage_id
         %td= link_to 'create order', orders_path
-
-
-

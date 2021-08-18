@@ -14,12 +14,17 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = current_user.orders.new(order_params)
     if @order.save
         redirect_to dishes_path, notice: 'Order has been successfully created'
       else
-        redirect_to dishes_path
+        render :new
     end
+  end
+
+  def total_price
+
   end
 
   private

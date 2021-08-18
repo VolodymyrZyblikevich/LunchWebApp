@@ -1,2 +1,13 @@
-%h1 Users#show
+%h1= 'Welcome text'
 = @user.email
+.row
+  %aside.col-md-4
+    %section.user_info
+      %h1
+        = user_gravatar @user
+        = @user.first_name
+= simple_form_for @user do |f|
+  = f.input :first_name, input_html: { value: 'name' }
+  = f.input :last_name, input_html: { value: 'surname' }
+  = f.input :password
+  = f.submit "update profile", method: :edit

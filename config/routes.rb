@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :dishes
   resources :menu_days, only: %i[index show]
-  resources :orders, only: %i[index new create]
-  resources :users, only: [:show, :edit]
-  root to: 'dishes#index'
+  resources :orders, only: %i[index new create show]
+  resources :users, only: %i[show edit update]
+  root to: 'menu_days#index'
 end

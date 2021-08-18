@@ -9,10 +9,8 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/alert'
     = render "layouts/navigation"
     #flash
       - flash.each do |key, value|
-        %div{class: "flash #{key}"}= value
-    .container-fluid
-      = yield
+        %div{class: "alert alert-success #{key}"}= value
+  = yield
