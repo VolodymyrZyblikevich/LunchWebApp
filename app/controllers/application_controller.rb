@@ -9,6 +9,23 @@ class ApplicationController < ActionController::Base
     edit_user_registration_path
   end
 
+  private
+
+  def default_url_locale
+    {locale: i18n.locale}
+  end
+
+  def set_locale
+    i18n.locale = extract_locale || i18n.default_locale
+  end
+
+  def extract_locale
+    parser_locale = params[:locale]
+    i18n.availcable_locales.map(&:to_s).include?(parser_locale) ?
+      parser_locale.to_sym :
+      nil
+  end
+
   protected
 
   def configure_permitted_parameters

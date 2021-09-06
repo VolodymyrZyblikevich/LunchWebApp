@@ -34,5 +34,7 @@ module LunchWebApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.i18n.available_locales = [:en, :ua]
+    config.default_locale = :en
   end
 end

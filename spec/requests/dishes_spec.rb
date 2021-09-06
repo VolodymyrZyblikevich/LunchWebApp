@@ -43,20 +43,20 @@
 
    describe "POST /create" do
      context "with valid parameters" do
-       it "creates a new Food" do
+       it "creates a new Dish" do
          expect {
-           post dishes_url, params: { food: valid_attributes }
+           post dishes_url, params: { dish: valid_attributes }
          }.to change(Dish, :count).by(1)
        end
 
-       it "redirects to the created food" do
+       it "redirects to the created dish" do
          post dishes_url, params: { dish: valid_attributes }
          expect(response).to redirect_to(dish_url(Dish.last))
        end
      end
 
      context "with invalid parameters" do
-       it "does not create a new Food" do
+       it "does not create a new dish" do
          expect {
            post dishes_url, params: { dish: invalid_attributes }
          }.to change(Dish, :count).by(0)
@@ -75,17 +75,17 @@
          skip("Add a hash of attributes valid for your model")
        }
 
-       it "updates the requested food" do
+       it "updates the requested dish" do
          dish = Dish.create! valid_attributes
          patch dish_url(dish), params: { dish: new_attributes }
-         food.reload
+         dish.reload
          skip("Add assertions for updated state")
        end
 
-       it "redirects to the food" do
-         food = Dish.create! valid_attributes
+       it "redirects to the dish" do
+         dish = Dish.create! valid_attributes
          patch dish_url(dish), params: { dish: new_attributes }
-         food.reload
+         dish.reload
          expect(response).to redirect_to(dish_url(dish))
        end
      end
@@ -100,7 +100,7 @@
    end
 
    describe "DELETE /destroy" do
-     it "destroys the requested food" do
+     it "destroys the requested dish" do
        dish = Dish.create! valid_attributes
        expect {
          delete dish_url(dish)

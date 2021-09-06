@@ -1,0 +1,17 @@
+ua:
+  devise:
+    sessions:
+      user:
+        signed_in: 'Ласкаво просимо'
+        signed_out: "До побачення)"
+    registrations:
+      signed_up: "Ласкаво просимо! Ви успішно зареєструвалися. "
+  simple_form:
+    "yes": 'Так'
+    "no": 'Ні'
+    required:
+      text: 'Запит'
+      mark: '*'
+      submit: 'Створоти замовлення'
+  activerecord:
+    models:

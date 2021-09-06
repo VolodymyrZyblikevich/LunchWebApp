@@ -1,11 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  describe "GET /show" do
-    it "returns http success" do
-      get "/users/show"
-      expect(response).to have_http_status(:success)
+  describe "authorizable" do
+    it 'is database authenticable' do
+      user = User.create(
+        email: 'test@example.com',
+        password: 'password123',
+        password_confirmation: 'password123'
+      )
+      expect(user.valid_password?('password123')).to be_truthy
     end
+
   end
 
 end
