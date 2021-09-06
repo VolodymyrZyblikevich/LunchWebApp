@@ -16,3 +16,9 @@ MenuDay::WEEK_DAYS.each_value do |day|
   ].flatten
   MenuDay.create(day: day, dishes: dishes)
 end
+
+User.create!(
+  email: 'vovchif17@gmail.com',
+  password: '12345678',
+  admin: true
+)

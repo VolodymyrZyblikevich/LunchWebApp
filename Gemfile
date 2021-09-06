@@ -18,6 +18,8 @@ gem 'faker'
 gem 'factory_bot_rails'
 gem 'rubocop'
 gem 'rubocop-rspec'
+gem 'will_paginate'
+gem 'rails-i18n'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 

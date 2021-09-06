@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe "dishes/new", type: :view do
   before(:each) do
     assign(:dish, Dish.new(
-      name: "MyString",
+      name: "cake",
       price: 1,
-      category: "MyString"
+      dish_type: "beverage"
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "dishes/new", type: :view do
 
       assert_select "input[name=?]", "dish[price]"
 
-      assert_select "input[name=?]", "idsh[category]"
+      assert_select "input[name=?]", "dish[dish_type]"
     end
   end
 end

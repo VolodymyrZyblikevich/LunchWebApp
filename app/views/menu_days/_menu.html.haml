@@ -1,17 +1,37 @@
-.soups
-  %h3= 'Soups'
-  %ul
-    - dishes.soup.each do |soup|
-      %li= soup.name
+= simple_form_for Order.new, url: new_order_path, method: :get do |f|
+  .soups
+    .container
+    %h3= t 'Soup'
+    .row
+      - dishes.soup.each do |soup|
+        .col
+          %label= f.radio_button :soup_id, soup.id
+          .panel.panel-default.card-input
+            = image_tag("dish.jpeg")
+            .panel-heading= soup.name
+            .panel-body= soup.price
+  .main_dish
+    .container
+    %h3= t 'Main'
+    .row
+      - dishes.main_dish.each do |main_dish|
+        .col
+          %label= f.radio_button :main_dish_id, main_dish.id
+          .panel.panel-default.card-input
+            = image_tag("dish.jpeg")
+            .panel-heading= main_dish.name
+            .panel-body= main_dish.price
+  .beverage
+    .container
+    %h3= t 'Beverages'
+    .row
+      - dishes.beverage.each do |beverage|
+        .col
+          %label= f.radio_button :beverage_id, beverage.id
+          .panel.panel-default.card-input
+            = image_tag("dish.jpeg")
+            .panel-heading=beverage.name
+            .panel-body=beverage.price
+    = f.submit 'Create order'
 
-.main_dish
-  %h3= 'Main'
-  %ul
-    - dishes.main_dish.each do |main_dish|
-      %li= main_dish.name
 
-.beverage
-  %h3= 'Beverages'
-  %ul
-    - dishes.beverage.each do |beverage|
-      %li= beverage.name

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "dishes/show", type: :view do
   before(:each) do
-    @food = assign(:food, Food.create!(
+    @dish = assign(:dish, Dish.create!(
       name: "Name",
-      price: 2,
-      category: "Category"
+      price: 2.3,
+      dish_type: 'beverage'
     ))
   end
 

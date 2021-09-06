@@ -3,9 +3,9 @@
 %table
   %thead
     %tr
-      %th Name
-      %th Price
-      %th Category
+      %th= "Name"
+      %th= "Price"
+      %th= "Dish category"
 
   %tbody
     - @dishes.each do |dish|
@@ -16,7 +16,6 @@
         %td= link_to 'Show', dish
         %td= link_to 'Edit', edit_dish_path(dish)
         %td= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' }
-
+- will_paginate @dishes
 %br
-
 = link_to 'New dish', new_dish_path
